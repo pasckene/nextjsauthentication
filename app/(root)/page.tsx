@@ -4,6 +4,8 @@ import { auth} from "@/auth";
 import { login } from "@/lib/actions/auth";
 import SignInButton from "../components/sign-in-button";
 import Image from "next/image";
+import Link from "next/link";
+import { SignOutButton } from "../components/sign-out-button copy";
 export default async function Home() {
   const session = await auth();
   console.log(session);
@@ -21,7 +23,7 @@ export default async function Home() {
     return (
       <>
         <div>
-          <h1>Welcome {session.user?.name}</h1>
+          {/* <h1>Welcome {session.user?.name}</h1>
           <h1>Welcome {session.user?.email}</h1>
            { session.user.image && (
             <Image src={session.user.image}
@@ -31,7 +33,10 @@ export default async function Home() {
             alt={session.user.name ?? "Avatar"} />
             
           )} 
-           <p>{JSON.stringify(session)}</p>
+           <p>{JSON.stringify(session)}</p> */}
+
+           <Link href="/user-info" > User Info</Link>
+           <SignOutButton />
         </div>
       </>
     );
